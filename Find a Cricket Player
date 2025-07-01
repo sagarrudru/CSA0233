@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Player {
+    char name[50];
+    int runs;
+};
+
+int main() {
+    struct Player p[3];
+    char search[50];
+    int i, found = 0;
+
+    // Input details
+    for (i = 0; i < 3; i++) {
+        printf("Enter name of player %d: ", i + 1);
+        scanf(" %[^\n]", p[i].name);
+        printf("Enter runs: ");
+        scanf("%d", &p[i].runs);
+    }
+
+    // Search player
+    printf("\nEnter player name to search: ");
+    scanf(" %[^\n]", search);
+
+    for (i = 0; i < 3; i++) {
+        if (strcmp(p[i].name, search) == 0) {
+            printf("\nPlayer found!\n");
+            printf("Name: %s\nRuns: %d\n", p[i].name, p[i].runs);
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found)
+        printf("\nPlayer not found.\n");
+
+    return 0;
+}
+
+
+
+Output:
+
+Enter name of player 1: Virat Kohli
+Enter runs: 12000
+Enter name of player 2: Rohit
+Enter runs: 10000
+Enter name of player 3: Dhoni
+Enter runs: 10500
+
+Enter player name to search: Dhoni
+
+Player found!
+Name: Dhoni
+Runs: 10500
