@@ -17,3 +17,6 @@ int main() {
 
 
 Output:
+Enter an integer: 9
+9 is odd.
+
